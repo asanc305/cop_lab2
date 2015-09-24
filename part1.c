@@ -14,7 +14,7 @@ void SimpleThread( void * which )
       usleep(10) ;
 
     val = SharedVariable ;
-    printf("*** thread %d sees value %d\n", which, val) ;
+    printf("*** thdread %d sees value %d\n", which, val) ;
     SharedVariable = val + 1 ;
   }
 
