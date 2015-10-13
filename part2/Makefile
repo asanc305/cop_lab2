@@ -1,2 +1,5 @@
-test: crazy-professor.c
-	gcc -o test crazy-professor.c -lpthread
+test: professor.c
+	gcc -o test professor.c -lpthread
+
+clean:
+	rm -f test *.o
