@@ -1,9 +1,9 @@
 void AnswerStart() ;
 void AnswerDone() ;
-void QuestionStart(int, int) ;
+void QuestionStart() ;
 void QuestionDone() ;
-void EnterOffice( int, int ) ;
-void LeaveOffice( int ) ;
+void EnterOffice() ;
+void LeaveOffice() ;
  
 typedef struct
 {
