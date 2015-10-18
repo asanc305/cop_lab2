@@ -23,48 +23,35 @@ void *SimpleThread( void * x )
     #endif
 
     val = SharedVariable ;
-    printf("*** thread %d sees value %d\n", which, val) ;
+    printf("*** thdread %d sees value %d\n", which, val) ;
     SharedVariable = val + 1 ;
 
     #ifdef PTHREAD_SYNC
       pthread_mutex_unlock( &lock ) ;
     #endif
   }
-  
+
   #ifdef PTHREAD_SYNC
     pthread_barrier_wait( &barrier ) ;
-  #endif
+  #endif  
   val = SharedVariable ;
   printf("Thread %d sees final value %d\n", which, val) ;
-  
-}
-
-int isNumeric (const char * s)
-{
-  if (s == NULL || *s == '\0')
-    return 0;
-  char * p;
-  strtod (s, &p);
-  return *p == '\0';
 }
 
 int main (int args, char *argv[])
 {
   int i, numThreads ;
 
-  if ( args != 2 || isNumeric( argv[1] ) == 0 )
-  {
-	printf("call <number of threads>\n") ;
-	return -1 ;	  
-  }
-    
+  if ( args != 2 )
+    printf("call <number of threads\n") ;
+
   numThreads = atoi( argv[1] ) ;
   pthread_t threads[ numThreads ] ;
 
   pthread_barrier_init( &barrier, NULL, numThreads + 1 ) ;
   pthread_mutex_init( &lock, NULL ) ;
 
-  for( i = 1; i <= numThreads; i++ )
+  for( i = 0; i <= numThreads; i++ )
   {
     if( pthread_create( &threads[i], NULL, SimpleThread, ( void* ) i ) != 0 ) 
     {

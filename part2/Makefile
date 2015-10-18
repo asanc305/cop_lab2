@@ -1,5 +1,5 @@
-test: professor.c
-	gcc -o test professor.c -lpthread
+professor: professor.c
+	gcc -o professor professor.c -lpthread
 
 clean:
-	rm -f test *.o
+	rm -f professor *.o

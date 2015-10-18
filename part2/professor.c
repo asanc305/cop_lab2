@@ -220,7 +220,7 @@ void Professor()
 
 int isNumeric (const char * s)
 {
-  if (s == NULL || *s == '\0' || isspace(*s))
+  if (s == NULL || *s == '\0')
     return 0;
   char * p;
   strtod (s, &p);
