@@ -1,0 +1,4 @@
+make - compiles code without synchronization ( 1.1 )
+make sync - compiles code with synchrnoization ( 1.2 )
+
+part1 <number of threads>

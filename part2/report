@@ -1,0 +1,9 @@
+1) Student variable keeps track of the number of students in the room.
+	While the number of students is at capacity then that thread will wait until it gets a signal from a student that has exited the room
+	When a student exits they will update the student variable and send the signa;
+2) Professor waits to be asked a question
+	When student asks a question it aquires a lock and sends a signal to the teacher thread
+	When student is done with the question it will release the question lock and allow other students to ask questions
+	
+	
+

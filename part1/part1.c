@@ -5,7 +5,6 @@
 
 int SharedVariable = 0 ;
 pthread_barrier_t barrier ;
-pthread_mutex_t lock ;
 
 void *SimpleThread( void * x )
 {
@@ -18,17 +17,9 @@ void *SimpleThread( void * x )
     if (random() > RAND_MAX / 2 )
       usleep(10) ;
 
-    #ifdef PTHREAD_SYNC
-      pthread_mutex_lock( &lock ) ;
-    #endif
-
     val = SharedVariable ;
     printf("*** thread %d sees value %d\n", which, val) ;
     SharedVariable = val + 1 ;
-
-    #ifdef PTHREAD_SYNC
-      pthread_mutex_unlock( &lock ) ;
-    #endif
   }
   
   #ifdef PTHREAD_SYNC
@@ -61,8 +52,7 @@ int main (int args, char *argv[])
   numThreads = atoi( argv[1] ) ;
   pthread_t threads[ numThreads ] ;
 
-  pthread_barrier_init( &barrier, NULL, numThreads + 1 ) ;
-  pthread_mutex_init( &lock, NULL ) ;
+  pthread_barrier_init( &barrier, NULL, numThreads ) ;
 
   for( i = 1; i <= numThreads; i++ )
   {

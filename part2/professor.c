@@ -125,12 +125,12 @@ void * Student_Start(void * s)
     while (!available) pthread_cond_wait(&notAvailable, &studentLock) ; 
     pthread_mutex_unlock(&studentLock) ;
 	
-	pthread_mutex_lock(&questionLock) ;
-	disId = id ;
-	qNumber = q ;
-    QuestionStart() ;
-	pthread_mutex_unlock(&questionLock) ;
-	pthread_cond_signal(&noQuestion) ;
+		pthread_mutex_lock(&questionLock) ;
+		disId = id ;
+		qNumber = q ;
+		QuestionStart() ;
+		pthread_mutex_unlock(&questionLock) ;
+		pthread_cond_signal(&noQuestion) ;
 
     QuestionDone() ;
     

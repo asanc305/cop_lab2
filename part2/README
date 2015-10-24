@@ -1,0 +1,4 @@
+make - compile program
+make clean - clean directory
+
+./professor <number of students> <office capacity>

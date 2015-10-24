@@ -1,0 +1,27 @@
+Without synchronization when the thread is exiting the loop it will display the value twice therefore when the next thread prints it will print the final value of the previous thread.
+
+With synchronization all the threads will wait just before printing the final value so that they will all print it the same.
+
+[ 5130.483872] Name: part1 
+[ 5130.483873] PID: 1377 
+[ 5130.483874] State: running 
+[ 5130.483874] ParentID: 1329 
+[ 5130.483874] 
+[ 5130.483876] Name: part1 
+[ 5130.483876] PID: 1378 
+[ 5130.483877] State: running 
+[ 5130.483877] ParentID: 1329 
+[ 5130.483877] 
+[ 5130.483878] Name: part1 
+[ 5130.483879] PID: 1379 
+[ 5130.483879] State: running 
+[ 5130.483879] ParentID: 1329 
+[ 5130.483880] 
+[ 5130.483881] Name: part1 
+[ 5130.483881] PID: 1380 
+[ 5130.483881] State: running 
+[ 5130.483882] ParentID: 1329 
+[ 5130.483882] 
+
+
+
